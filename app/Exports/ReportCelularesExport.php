@@ -110,6 +110,7 @@ class ReportCelularesExport implements FromCollection ,  WithHeadings, ShouldAut
                 unset($cel->fecha_compra);
                 unset($cel->fecha_venta);
                 unset($cel->comprador);
+				unset($cel->vendedor);
                 unset($cel->imei);
                 unset($cel->precio_compra);
                 unset($cel->precio_venta);
@@ -128,7 +129,8 @@ class ReportCelularesExport implements FromCollection ,  WithHeadings, ShouldAut
                 unset($cel->fecha_compra);
                 unset($cel->fecha_venta);
                 unset($cel->comprador);
-                unset($cel->imei);
+                unset($cel->vendedor);
+				unset($cel->imei);
                 unset($cel->precio_compra);
                 unset($cel->precio_venta);
                 unset($cel->id);
@@ -148,7 +150,6 @@ class ReportCelularesExport implements FromCollection ,  WithHeadings, ShouldAut
                 'Marca',
                 'Modelo',
                 'Capacidad',
-                'Vendedor',
                 'Colores',
 
             ];
@@ -157,7 +158,6 @@ class ReportCelularesExport implements FromCollection ,  WithHeadings, ShouldAut
             'Marca',
             'Modelo',
             'Capacidad',
-            'Vendedor',
             'Colores',
             'Precios'
         ];
@@ -167,7 +167,7 @@ class ReportCelularesExport implements FromCollection ,  WithHeadings, ShouldAut
     {
         return [
             AfterSheet::class    => function(AfterSheet $event) {
-                $cellRange = 'A1:F1'; // All headers
+                $cellRange = 'A1:E1'; // All headers
                 $event->sheet->getDelegate()->getStyle($cellRange)->getFont()->setSize(14);
                 $event->sheet->getDelegate()->getStyle($cellRange)->getFont()->setBold(true);
 
