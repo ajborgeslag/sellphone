@@ -114,13 +114,13 @@ endif; ?>
                                 </div>
                             </div>
 
-                            <div class="form-group">
+                            <!--<div class="form-group">
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Precio venta
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
                                     <input type="text" placeholder="0.00" min="0" step="0.01" value="<?php echo e(old('precio_venta')); ?>" name="precio_venta" id="precio_venta" class="form-control col-md-7 col-xs-12 precio_venta bold" readonly>
                                 </div>
-                            </div>
+                            </div>-->
 
                             <div class="form-group">
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Nombre<span class="required">*</span>
@@ -249,7 +249,7 @@ endif; ?>
             format: 'DD-MM-YYYY hh:mm a'
         });
 
-        $('#precio').change(function(){
+        /*$('#precio').change(function(){
 
             var precio = document.getElementById("precio").value;
             var precio_dollar = document.getElementById("precio_dollar").value;
@@ -320,7 +320,7 @@ endif; ?>
 
             var precio_venta = (parseFloat(precio)/parseFloat(cotizacion))+parseFloat(precio_dollar);
             document.getElementById("precio_venta").value = String(precio_venta.toFixed(2));
-        });
+        });*/
 
         $('#formenviar').submit(function(){
 

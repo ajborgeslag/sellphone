@@ -36,6 +36,7 @@ class CotizacionController extends Controller
         $cotizacion->valor = $request->input('valor');
         $fecha =$request->input('fecha');
         $cotizacion->fecha = date('Y-m-d H:i',strtotime($fecha));
+		$cotizacion->solo_fecha = date('Y-m-d',strtotime($fecha));
         $cotizacion->save();
 
         return redirect('/cotizacion');
@@ -70,7 +71,8 @@ class CotizacionController extends Controller
         $cotizacion->valor = $request->input('valor');
         $fecha =$request->input('fecha');
         $cotizacion->fecha = date('Y-m-d H:i:s',strtotime($fecha));
-        $cotizacion->update();
+        $cotizacion->solo_fecha = date('Y-m-d',strtotime($fecha));
+		$cotizacion->update();
 
         return redirect('/cotizacion');
     }

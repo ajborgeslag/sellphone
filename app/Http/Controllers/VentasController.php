@@ -61,11 +61,14 @@ class VentasController extends Controller
 			$fecha_sin_hora = date('Y-m-d',strtotime($fecha_final));
             $precio_dollar = $request->input('precio_dollar');
             $vendedor = $request->input('vendedor');
-            $ultima_cotizacion = Cotizacion::all()->last();
-			//$ultima_cotizacion = Cotizacion::whereDate('fecha','=',$fecha_sin_hora)->last();
+            //$ultima_cotizacion = Cotizacion::all()->last();
+			$ultima_cotizacion = Cotizacion::where('solo_fecha','=',$fecha_sin_hora)->first();
 			
-			/*if(!$ultima_cotizacion)
-				return Redirect::back()->withInput(Input::all())->withErrors(['cotizacion'=>'No existe una cotización para la fecha de venta']);*/
+			if(!$ultima_cotizacion)
+			{
+				$ultima_cotizacion = Cotizacion::all()->last();
+			}
+				//return Redirect::back()->withInput(Input::all())->withErrors(['cotizacion'=>'No existe una cotización para la fecha de venta']);*/
 
             $precio_venta = ($precio/$ultima_cotizacion->valor)+$precio_dollar;
 
@@ -132,9 +135,8 @@ class VentasController extends Controller
     public function update(VentaFormRequest $request, $id)
     {
         $validatedData = $request->validated();
-		$ultima_cotizacion = Cotizacion::all()->last();
-
-        $venta = Venta::find($id);
+		
+		$venta = Venta::find($id);
         $celular_actual = Celular::find($venta->celular_id);
         $cotizacion = Cotizacion::find($venta->cotizacion_id);
         $caja_dat =  DB::table('cajas')
@@ -151,9 +153,16 @@ class VentasController extends Controller
         /*$hora = $request->input('hora_venta');*/
         $fecha_final = $fecha_venta/*.' '.$hora*/;
         $fecha = date('Y-m-d H:i',strtotime($fecha_final));
+		$fecha_sin_hora = date('Y-m-d',strtotime($fecha_final));
         $precio_dollar = $request->input('precio_dollar');
         $vendedor = $request->input('vendedor');
 
+		$ultima_cotizacion = Cotizacion::where('solo_fecha','=',$fecha_sin_hora)->first();
+			
+		if(!$ultima_cotizacion)
+		{
+			$ultima_cotizacion = Cotizacion::all()->last();
+		}
 
         $precio_venta = ($precio/$cotizacion->valor)+$precio_dollar;
 		
@@ -259,7 +268,9 @@ class VentasController extends Controller
             $celular_actual->update();
             $venta->update();
         }
+		$ultima_cotizacion->usado = 1;
 
+		$ultima_cotizacion->update();
         return redirect('/ventas');
     }
 
