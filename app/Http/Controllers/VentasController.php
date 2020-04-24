@@ -23,7 +23,8 @@ class VentasController extends Controller
             ->leftjoin('celulares', 'celulares.id', '=', 'ventas.celular_id')
             ->leftjoin('users', 'users.id', '=', 'ventas.user_id')
             ->select('ventas.*', 'celulares.imei as imei', 'celulares.precio_venta as precio_venta','users.name as usuario')
-            ->get();
+            ->orderBy('fecha','desc')
+			->get();
         return view('ventas.index',['ventas'=>$ventas,'ultima_cotizacion'=>$ultima_cotizacion]);
     }
 
