@@ -87,14 +87,11 @@
                             <!--Moduo de Productos -->
                             <li ng-show="$rootScope.rol_name == 'Admin' || $rootScope.rol_name == 'User'" class="active"><a><h3>Productos</h3> <span class="fa fa-chevron-down"></span></a>
                                 <ul class="nav child_menu" style="display: block">
-
-                                    <li class="active"><a href="{{url('/celulares')}}"><i class="fa fa-mobile"></i> Equipos</a></li>
-                                    @if(Session::get('user')->role =='Administrador')
+									<li class="active"><a href="{{url('/celulares')}}"><i class="fa fa-mobile"></i> Equipos</a></li>
                                     <li class="active"><a href="{{url('/marcas')}}"><i class="fa  fa-maxcdn"></i> Marcas</a></li>
                                     <li class="active"><a href="{{url('/modelos')}}"><i class="fa fa-tablet"></i> Modelos</a></li>
                                     <li class="active"><a href="{{url('/capacidades')}}"><i class="fa  fa-balance-scale"></i> Capacidades</a></li>
                                     <li class="active"><a href="{{url('/colores')}}"><i class="fa fa-file-image-o"></i> Colores</a></li>
-                                    @endif
                                 </ul>
                                 <!--Moduo de Productos -->
 

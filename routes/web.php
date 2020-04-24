@@ -60,34 +60,34 @@ Route::delete('/caja/destroy/{id}', 'CajaController@destroy')->middleware('custo
 
 //Fin de Rutas de Gestion de Caja
 
-Route::get('/colores', 'ColorController@index')->middleware('custom_auth','role');
-Route::get('/colores/create', 'ColorController@create')->middleware('custom_auth','role');
-Route::post('/colores/store', 'ColorController@store')->middleware('custom_auth','role');
-Route::get('/colores/edit/{id}', 'ColorController@edit')->middleware('custom_auth','role');
-Route::post('/colores/update/{id}', 'ColorController@update')->middleware('custom_auth','role');
-Route::delete('/colores/destroy/{id}', 'ColorController@destroy')->middleware('custom_auth','role');
+Route::get('/colores', 'ColorController@index')->middleware('custom_auth');
+Route::get('/colores/create', 'ColorController@create')->middleware('custom_auth');
+Route::post('/colores/store', 'ColorController@store')->middleware('custom_auth');
+Route::get('/colores/edit/{id}', 'ColorController@edit')->middleware('custom_auth');
+Route::post('/colores/update/{id}', 'ColorController@update')->middleware('custom_auth');
+Route::delete('/colores/destroy/{id}', 'ColorController@destroy')->middleware('custom_auth');
 
-Route::get('/capacidades', 'CapacidadController@index')->middleware('custom_auth','role');
-Route::get('/capacidades/create', 'CapacidadController@create')->middleware('custom_auth','role');
-Route::post('/capacidades/store', 'CapacidadController@store')->middleware('custom_auth','role');
-Route::get('/capacidades/edit/{id}', 'CapacidadController@edit')->middleware('custom_auth','role');
-Route::post('/capacidades/update/{id}', 'CapacidadController@update')->middleware('custom_auth','role');
-Route::delete('/capacidades/destroy/{id}', 'CapacidadController@destroy')->middleware('custom_auth','role');
+Route::get('/capacidades', 'CapacidadController@index')->middleware('custom_auth');
+Route::get('/capacidades/create', 'CapacidadController@create')->middleware('custom_auth');
+Route::post('/capacidades/store', 'CapacidadController@store')->middleware('custom_auth');
+Route::get('/capacidades/edit/{id}', 'CapacidadController@edit')->middleware('custom_auth');
+Route::post('/capacidades/update/{id}', 'CapacidadController@update')->middleware('custom_auth');
+Route::delete('/capacidades/destroy/{id}', 'CapacidadController@destroy')->middleware('custom_auth');
 
-Route::get('/marcas', 'MarcaController@index')->middleware('custom_auth','role');
-Route::get('/marcas/create', 'MarcaController@create')->middleware('custom_auth','role');
-Route::post('/marcas/store', 'MarcaController@store')->middleware('custom_auth','role');
-Route::get('/marcas/edit/{id}', 'MarcaController@edit')->middleware('custom_auth','role');
-Route::post('/marcas/update/{id}', 'MarcaController@update')->middleware('custom_auth','role');
-Route::delete('/marcas/destroy/{id}', 'MarcaController@destroy')->middleware('custom_auth','role');
+Route::get('/marcas', 'MarcaController@index')->middleware('custom_auth');
+Route::get('/marcas/create', 'MarcaController@create')->middleware('custom_auth');
+Route::post('/marcas/store', 'MarcaController@store')->middleware('custom_auth');
+Route::get('/marcas/edit/{id}', 'MarcaController@edit')->middleware('custom_auth');
+Route::post('/marcas/update/{id}', 'MarcaController@update')->middleware('custom_auth');
+Route::delete('/marcas/destroy/{id}', 'MarcaController@destroy')->middleware('custom_auth');
 
-Route::get('/modelos', 'ModeloController@index')->middleware('custom_auth','role');
-Route::get('/modelos/create', 'ModeloController@create')->middleware('custom_auth','role');
-Route::post('/modelos/store', 'ModeloController@store')->middleware('custom_auth','role');
-Route::get('/modelos/edit/{id}', 'ModeloController@edit')->middleware('custom_auth','role');
-Route::post('/modelos/update/{id}', 'ModeloController@update')->middleware('custom_auth','role');
-Route::delete('/modelos/destroy/{id}', 'ModeloController@destroy')->middleware('custom_auth','role');
-Route::get('/modelos/get_by_marca', 'ModeloController@get_by_marca')->middleware('custom_auth','role');
+Route::get('/modelos', 'ModeloController@index')->middleware('custom_auth');
+Route::get('/modelos/create', 'ModeloController@create')->middleware('custom_auth');
+Route::post('/modelos/store', 'ModeloController@store')->middleware('custom_auth');
+Route::get('/modelos/edit/{id}', 'ModeloController@edit')->middleware('custom_auth');
+Route::post('/modelos/update/{id}', 'ModeloController@update')->middleware('custom_auth');
+Route::delete('/modelos/destroy/{id}', 'ModeloController@destroy')->middleware('custom_auth');
+Route::get('/modelos/get_by_marca', 'ModeloController@get_by_marca')->middleware('custom_auth');
 
 Route::get('/cotizacion', 'CotizacionController@index')->middleware('custom_auth');
 Route::get('/cotizacion/create', 'CotizacionController@create')->middleware('custom_auth');

@@ -62,7 +62,7 @@ class VentasController extends Controller
             $precio_dollar = $request->input('precio_dollar');
             $vendedor = $request->input('vendedor');
             //$ultima_cotizacion = Cotizacion::all()->last();
-			$ultima_cotizacion = Cotizacion::where('solo_fecha','=',$fecha_sin_hora)->first();
+			$ultima_cotizacion = Cotizacion::where('solo_fecha','=',$fecha_sin_hora)->orderBy('id','desc')->first();
 			
 			if(!$ultima_cotizacion)
 			{
@@ -157,7 +157,9 @@ class VentasController extends Controller
         $precio_dollar = $request->input('precio_dollar');
         $vendedor = $request->input('vendedor');
 
-		$ultima_cotizacion = Cotizacion::where('solo_fecha','=',$fecha_sin_hora)->first();
+		$ultima_cotizacion = Cotizacion::where('solo_fecha','=',$fecha_sin_hora)->orderBy('id','desc')->first();
+		
+		//var_dump($ultima_cotizacion);die();
 			
 		if(!$ultima_cotizacion)
 		{
