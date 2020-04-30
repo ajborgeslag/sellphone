@@ -229,7 +229,8 @@ class CajaController extends Controller
         $ultima_cotizacion = Cotizacion::all()->last();
         $hoy =1;
 
-        return view('caja.index',['cajas'=>$cajas2,'hoy'=>$hoy,'total_dollar'=>$total_dollar,'total_pesos'=>$total_pesos,'ultima_cotizacion'=>$ultima_cotizacion]);
+        /*return view('caja.index',['cajas'=>$cajas2,'hoy'=>$hoy,'total_dollar'=>$total_dollar,'total_pesos'=>$total_pesos,'ultima_cotizacion'=>$ultima_cotizacion]);*/
+        return redirect('/caja');
 
     }
 
